@@ -1,0 +1,27 @@
+version: '3'
+services:
+    php-apache:
+        build: .
+        ports:
+            - 80:80
+        volumes:
+            - /home/tiago/dev/crud:/var/www/html:z
+        links:
+            - mariadb:mariadb
+
+    mariadb:
+        image: mariadb:10.1
+        volumes:
+            - /home/tiago/dev/crud/db:/var/lib/mysql
+        environment:
+            MYSQL_ROOT_PASSWORD: senha
+            MYSQL_USER: tiago
+            MYSQL_PASSWORD: senha
+    adminer:
+        image: adminer
+        restart: always
+        ports:
+            - 8082:8080        
+
+volumes:
+    mariadb:
