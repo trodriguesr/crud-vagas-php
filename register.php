@@ -2,16 +2,18 @@
 
 require __DIR__ . '/vendor/autoload.php';
 
-use \App\Entity\Register;
+define('TITLE','Cadastrar vaga');
 
-$register = new Register;
+use \App\Entity\Vacancies;
+
+$vacancies = new Vacancies;
 
 if (isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])) {
 
-    $register->title = $_POST['titulo'];
-    $register->description = $_POST['descricao'];
-    $register->status = $_POST['ativo'];
-    $register->register();
+    $vacancies->title = $_POST['titulo'];
+    $vacancies->description = $_POST['descricao'];
+    $vacancies->status = $_POST['ativo'];
+    $vacancies->register();
 
     header('location: index.php?status=success');
     exit;
