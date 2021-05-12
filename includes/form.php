@@ -5,19 +5,19 @@
     </a>
   </section>
 
-  <h2 class="center">Cadastrar vaga</h2>
+  <h2 class="center"><?=TITLE?></h2>
   <div class="row">
     <form class="col s12" method="post">
       <div class="row">
         <div class="input-field col s12">
           <label for="input_text">Título</label>
-          <input id="input_text" type="text" name="titulo" value="<?= $vacancies->title ?>" data-length="10">
+          <input id="input_text" type="text" name="titulo" value="<?= $vacancies->title ?>">
 
         </div>
       </div>
       <div class="row">
         <div class="input-field col s12">
-          <textarea id="textarea2" class="materialize-textarea" name="descricao" data-length="250"<?= $vacancies->description ?>></textarea>
+          <textarea id="textarea2" class="materialize-textarea" name="descricao"<?= $vacancies->description ?>></textarea>
           <label for="textarea2">Descrição</label>
         </div>
       </div>
@@ -29,7 +29,7 @@
           <span>Ativo</span>
         </label>
         <label>
-          <input class="with-gap col s6" name="ativo" value="n" <?= $vacancies->status == 'n' ? 'checked' : '' ?> type="radio" />
+          <input type="radio" class="with-gap col s6" name="ativo" value="n" <?= $vacancies->status == 'n' ? 'checked' : '' ?> />
           <span>Inativo</span>
         </label>
       </div>

@@ -30,6 +30,19 @@ class Vacancies
         return true;
     }
 
+    public function update(){
+        return (new Database('tb_vagas'))->update('id = '.$this->id,[
+                                                                    'titulo'    => $this->title,
+                                                                    'descricao' => $this->description,
+                                                                    'ativo'     => $this->status,
+                                                                    'data'      => $this->date
+                                                                  ]);
+      }
+    
+      public function delete(){
+        return (new Database('tb_vagas'))->delete('id = '.$this->id);
+      }
+
     public static function getVacancies($where = null, $order = null, $limit = null)
     {
         return (new Database('tb_vagas'))->select($where, $order, $limit)

@@ -22,10 +22,10 @@ foreach ($vacancies as $vacancy) {
                       <td>' . ($vacancy->status == 's' ? 'Ativo' : 'Inativo') . '</td>
                       <td>' . date('d/m/Y à\s H:i:s', strtotime($vacancy->date)) . '</td>
                       <td>
-                        <a href="editar.php?id=' . $vacancy->id . '">
+                        <a href="editing.php?id=' . $vacancy->id . '">
                           <button type="button">Editar</button>
                         </a>
-                        <a href="excluir.php?id=' . $vacancy->id . '">
+                        <a href="delete.php?id=' . $vacancy->id . '">
                           <button type="button">Excluir</button>
                         </a>
                       </td>
@@ -40,6 +40,7 @@ $results = strlen($results) ? $results : '<tr>
 
 ?>
 <main>
+    <?= $mensage ?>
     <section>
         <a href="register.php">
             <button class="waves-effect waves-light btn-small">Cadastrar</button>
