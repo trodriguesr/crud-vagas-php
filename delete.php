@@ -9,14 +9,14 @@ if(!isset($_GET['id']) or !is_numeric($_GET['id'])){
   exit;
 }
 
-$vacancies = Vacancies::getVacancies($_GET['id']);
+$vacancies = Vacancies::getVacancy($_GET['id']);
 
 if(!$vacancies instanceof Vacancies){
   header('location: index.php?status=error');
   exit;
 }
 
-if(isset($_POST['excluir'])){
+if(isset($_POST['delete'])){
 
   $vacancies->delete();
 

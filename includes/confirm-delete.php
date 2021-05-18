@@ -5,15 +5,15 @@
   <form method="post">
 
     <div class="form-group">
-      <p>Você deseja realmente excluir a vaga <strong><?=$obVaga->titulo?></strong>?</p>
+      <p>Você deseja realmente excluir a vaga <strong><?=$vacancies->title?></strong>?</p>
     </div>
 
     <div class="form-group">
       <a href="index.php">
-        <button type="button" class="btn btn-success">Cancelar</button>
+        <button type="button" class="btn-small teal">Cancelar</button>
       </a>
 
-      <button type="submit" name="excluir" class="btn btn-danger">Excluir</button>
+      <button type="submit" name="delete" class="btn-small red darken-2">Excluir</button>
     </div>
 
   </form>

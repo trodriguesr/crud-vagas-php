@@ -4,11 +4,11 @@ $mensage = '';
 if (isset($_GET['status'])) {
     switch ($_GET['status']) {
         case 'success':
-            $mensage = '<div class="alert alert-success">Ação executada com sucesso!</div>';
+            $mensage = '<div class="card-panel grey lighten-5 z-depth-1">Ação executada com sucesso!</div>';
             break;
 
         case 'error':
-            $mensage = '<div class="alert alert-danger">Ação não executada!</div>';
+            $mensage = '<div class="card-panel grey lighten-5 z-depth-1">Ação não executada!</div>';
             break;
     }
 }
@@ -19,24 +19,24 @@ foreach ($vacancies as $vacancy) {
                       <td>' . $vacancy->id . '</td>
                       <td>' . $vacancy->title . '</td>
                       <td>' . $vacancy->description . '</td>
-                      <td>' . ($vacancy->status == 's' ? 'Ativo' : 'Inativo') . '</td>
+                      <td>' . ($vacancy->status == 'y' ? 'Ativo' : 'Inativo') . '</td>
                       <td>' . date('d/m/Y à\s H:i:s', strtotime($vacancy->date)) . '</td>
                       <td>
                         <a href="editing.php?id=' . $vacancy->id . '">
-                          <button type="button">Editar</button>
+                          <button class="btn-small teal" type="button">Editar</button>
                         </a>
                         <a href="delete.php?id=' . $vacancy->id . '">
-                          <button type="button">Excluir</button>
+                          <button class="btn-small red darken-2" type="button">Excluir</button>
                         </a>
                       </td>
                     </tr>';
 }
 
 $results = strlen($results) ? $results : '<tr>
-                                                       <td colspan="6" class="text-center">
-                                                              Nenhuma vaga encontrada
-                                                       </td>
-                                                    </tr>';
+                                            <td colspan="6" class="text-center">
+                                              Nenhuma vaga encontrada
+                                            </td>
+                                          </tr>';
 
 ?>
 <main>

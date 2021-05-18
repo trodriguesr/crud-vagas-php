@@ -8,13 +8,13 @@ use \PDOException;
 class Database
 {
 
-  const HOST = 'mariadb';
+  const HOST = 'localhost';
 
-  const NAME = 'db_vagas';
+  const NAME = 'db_vacancies';
 
   const USER = 'root';
 
-  const PASS = 'senha';
+  const PASS = '';
 
   private $table;
 

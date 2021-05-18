@@ -11,18 +11,18 @@ if (!isset($_GET['id']) or !is_numeric($_GET['id'])) {
     exit;
 }
 
-$vacancies = Vacancies::getVacancies($_GET['id']);
+$vacancies = Vacancies::getVacancy($_GET['id']);
 
 if (!$vacancies instanceof Vacancies) {
     header('location: index.php?status=error');
     exit;
 }
 
-if (isset($_POST['titulo'], $_POST['descricao'], $_POST['ativo'])) {
+if (isset($_POST['title'], $_POST['description'], $_POST['status'])) {
 
-    $vacancies->title    = $_POST['titulo'];
-    $vacancies->description = $_POST['descricao'];
-    $vacancies->status    = $_POST['ativo'];
+    $vacancies->title = $_POST['title'];
+    $vacancies->description = $_POST['description'];
+    $vacancies->status = $_POST['status'];
     $vacancies->update();
 
     header('location: index.php?status=success');
