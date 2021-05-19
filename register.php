@@ -8,11 +8,22 @@ use \App\Entity\Vacancies;
 
 $vacancies = new Vacancies;
 
-if (isset($_POST['title'], $_POST['description'], $_POST['status'])) {
 
+if (isset($_POST['title'], $_POST['description'], $_POST['status'])) {
+        
     $vacancies->title = $_POST['title'];
     $vacancies->description = $_POST['description'];
     $vacancies->status = $_POST['status'];
+
+    if(empty($vacancies->title)){
+        header('location: register.php?status=error');
+        exit;
+    }
+    if(empty($vacancies->description)){
+        header('location: register.php?status=error');
+        exit;
+    }
+    
     $vacancies->register();
 
     header('location: index.php?status=success');
